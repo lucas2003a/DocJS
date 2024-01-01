@@ -113,7 +113,81 @@ document.addEventListener("DOMContentLoaded", () => {
         -toFixed(digits)
         -toPrecision(size)
     */
+
+    //Notación exponencial
+    console.log((1.25).toExponential(0));       //1e+0
+    console.log((1.25).toExponential(1));       //1.3e+0
+    console.log((1.25).toExponential(2));       //1.25e+0
+    console.log((1.25).toExponential(3));       //1.250e+0
     console.log("");
+    /*Forma de trabajar: 
+        (NUMBER).toExponential(DIGITS)
+
+        NUMBER => Es el número que sera sometido a la notación exponencial.
+        DIGITS => Es el número de decimales que se mostrarán en el resultado.
+
+        Resultado:
+        
+            1.250e+0
+
+            -Es una notación exponencial (base de 10).
+            -Muestra solo la cantidad de decimales indicados en DIGITS.
+            -La "e" indica "exponente de 10" seguido de "+", que indica que el exponenete es positivo (también puede ser -, que indicaría que es negativo).
+            -El ultimo digito despues del "+", representa el exponente al que es elevado la bas (en este caso base 10).
+
+            -Puedes leerlo así:
+                1.250 * 10^0 => 1.250 * 1 = 1.250 = 1.25//
+    */
+
+    //Notación punto fijo
+    console.log((1.25).toFixed(0));         //1
+    console.log((1.25).toFixed(1));         //1.3
+    console.log((1.25).toFixed(2));         //1.25
+    console.log((1.25).toFixed(3));         //1.250
+    console.log("");
+    /*
+    Forma de trabajar:
+        (NUMBER).toFixed(DIGITS);
+
+        NUMBER => Es el número que sera sometido a la notación fija.
+        DIGITS => Es el número de decimales que se mostrarán en el resultado.
+        
+        Resultado:
+            1.250
+
+            -Es una notación de punto fijo (se asigna un núymero fijo de dígitos).
+            -Muestra solo la cantidad de decimales indicados en DIGITS.
+    */
+
+    //Cambio de presición
+    //console.log((523.75).toPrecision(0));           //Uncaught RangeError: toPrecision() argument must be between 1 and 100
+    console.log((523.75).toPrecision(1));           //5e+2
+    console.log((523.75).toPrecision(2));           //5.2e+2
+    console.log((523.75).toPrecision(3));           //524
+    console.log((523.75).toPrecision(4));           //523.8
+    console.log((523.75).toPrecision(5));           //523.75
+    console.log((523.75).toPrecision(6));           //523.750
+    console.log("");
+    /*
+    Forma de trabajar:
+        (NUMBER).toPrecision(DIGITS);
+
+        NUMBER => Es el número que sera sometido al cabio de presición.
+        DIGITS => Es el número de digitos a mostrar(toma los dígitos más signifcativos, o mejor dicho toma todos los dígitos).
+                  Solo acepta valores entre 0 y 100.
+        
+        Resultado:
+            *Cuando DIGITS indica un número menor a la longitud de NUMBER:
+                5e+2
+            *Cuando DIGITS indica un numero igual a la longitud de NUMBER:
+                523.75
+            *Cuando DIGITS indica un número mayor a la longitud de NUMBER:
+                523.750
+        
+    toPrecision() considera el cambio desde el primer número de la parte entera, a diferencia de toFixed() o toExponential() que o considera desde el primer número de la fracción o parte decimal
+    */
+
+    //En cuaquiera de los métodos mostrados, cuando DIGITS señala una longitud que supera a NUMBER, se irá rellenando con ceros desde el ultimo número, hasta completar la longitud señalada en DIGITS.
 
     //-----------------------------------------------------------------------
 
