@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         undefined   = false
         null        = false
         false       = false
+        NaN         = false
         
     forma de evaluar del operador &&
         -Si el primer miembro es verdadero, devuelve el segundo miembro
