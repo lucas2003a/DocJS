@@ -103,9 +103,9 @@ document.addEventListener("DOMContentLoaded",()=>{
         0o  => a BASE OCTAL
         0x  => a BASE HEXADECIMAL
     */
-    console.log(0b11101);   //29    => se compone de 0b y 11101 => 0b indica que 11101 se encuantra en base binaria, y se transforma a base decimal.
-    console.log(0o31);      //25    => se compone de 0o y 31    => 0o indica que 31 se encuantra en base octal, y se transforma a base decimal.
-    console.log(0xFF);      //255   => se compone de 0x y FF    => 0x indica que FF se encuantra en base hexadecimal, y se transforma a base decimal.
+    console.log(0b11101);   //29    => se compone de 0b y 11101 => 0b indica que 11101 se encuentra en base binaria, y se transforma a base decimal.
+    console.log(0o31);      //25    => se compone de 0o y 31    => 0o indica que 31 se encuentra en base octal, y se transforma a base decimal.
+    console.log(0xFF);      //255   => se compone de 0x y FF    => 0x indica que FF se encuentra en base hexadecimal, y se transforma a base decimal.
     console.log("");
 
     //-----------------------------------------------
@@ -113,8 +113,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     console.log("%cConvertir desde base decimal","font-weight: bold;");
     console.log((16).toString());           //"16"      => Lo transforma a un string.
     console.log((42.5).toString());         //"42.5"    => Lo transforma a un string.
-    console.log((26).toString(2));          //"11010"   => 26 es transoformado a base binaria ya que dentro de toString(2), el 2 indica BASE BINARIA.
-    console.log((80).toString(8));          //"120"     => 80 es transoformado a base octal ya que dentro de toString(8), el 8 indica BASE OCTAL.
-    console.log((245123).toString(16));     //"3bd83"   => 245123 es transoformado a base hexadecimal ya que dentro de toString(16), el 16 indica BASE HEXADECIMAL.
+    console.log((26).toString(2));          //"11010"   => 26 es transformado a base binaria ya que dentro de toString(2), el 2 indica BASE BINARIA.
+    console.log((80).toString(8));          //"120"     => 80 es transformado a base octal ya que dentro de toString(8), el 8 indica BASE OCTAL.
+    console.log((245123).toString(16));     //"3bd83"   => 245123 es transformado a base hexadecimal ya que dentro de toString(16), el 16 indica BASE HEXADECIMAL.
     console.log("");
 });
