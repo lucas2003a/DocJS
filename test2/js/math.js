@@ -129,22 +129,112 @@ document.addEventListener("DOMContentLoaded",()=>{
     
     //Math.clz32(x) => Devuelve el número de ceros a la izquierda de x en binario (32 bits).
     //clz32 = Count Leading Zeros 32 = Contar Ceros Principales 32(bits).
-    console.log("Math.clz32(32) : ",Math.clz32(32));                                //26
-    console.log("numeros de ceros: ","0".repeat(Math.clz32(32)));                   //26 veces "0" = 00000000000000000000000000 => 26 bits
+    console.log("Math.clz32(32)     : ",Math.clz32(32));                                //26
+    console.log("numeros de ceros   : ","0".repeat(Math.clz32(32)));                   //26 veces "0" = 00000000000000000000000000 => 26 bits
     /*plantilla.repeat(numerVeces):
         repite la plantilla el numerVeces indicado.
         En el caso anterior: repite "0" 26 veces.
     */
-    console.log("cadena binaria: ","0".repeat(Math.clz32(32)) + (32).toString(2));  //26 veces "0" + el valor de 32 en base 2(binario) = 00000000000000000000000000100000 => 32 bits.
+    console.log("cadena binaria (valor binario de 32)   : ","0".repeat(Math.clz32(32)) + (32).toString(2));  //26 veces "0" + el valor de 32 en base 2(binario) = 00000000000000000000000000100000 => 32 bits.
     console.log("");
     //-------------------------------------------------------------------------------
+    
+    console.log("%cMétodo Math.random()","font-weight: bold;");
+    //Math.random() => Devuelve un valor entre 0 y 1 con 16 decimales.
 
+    //CASO 1:
+    let x = Math.random();
+    
+    //Forma 1 : asignación basica
+    //x = x * 5;
+
+    //Forma 2 : operador *= (recuerda que este tipo de asignación se puede realizar con todos los operadores).
+    x *= 5;
+    console.log("Valor de x: ", x);
+
+    const x2 = Math.floor(x);       //Math.floor(x) => Redondea la parte entera hacia abajo, es decir, si tenemos como resultado 3.95... , redondeará hacia 3 en vez de a 4.
+    console.log("Math.floor: ", x2);
     console.log("");
+
+    //--
+    //CASO 2:
+    const x3 = Math.floor(Math.random() * 5);
+    console.log("Math.floor(Math.random() * 5): ", x3);
     console.log("");
+
+    //CASO 3:
+    //-- ~ = Alt + 126
+    //~~ => Cumple la misma fuinción que Math.floor(x), trunca hacia 0 elminando la parte decimal de número, es decir redondea hacia abajo.
+    const x4 = ~~(Math.random() * 5);
+    console.log("~~(Math.random() * 5) : ", x4);
+    console.log("");
+
+    /**IMPORTANTE**
+        En los 3 casos se realiza la misma operación y un mismo resultado, la diferencia de respuesta se debe al tiempo de ejecución,
+        pero en los 3 casos se plantea 3 distintas soluciones para un mismo caso y un solo resultado.
+        para comproobar puedes reemplazar "Math.random() * 5" por "x" para que todas se ejecuten con un mismo valor y tengan un mismo resultado.
+     */
     //-------------------------------------------------------------------------------
 
+    console.log("%cMétodos de logaritmos","font-weight: bold;");
+    /*Para comprender la forma de trabajar de los logaritmos, es más facil decir que es la operación inversa a la potencia,
+    es decir podemos decir que 2 elevedo a 4 es 16 para hallar una potencia, pero para hallar un logaritmo debemos preguntarnos,
+    2 elevado a que potencia es 16?
+    
+    Por ejemplo:
+
+        2**4 = 16   =>  log2(16) = 4;
+
+    Más ejemplos:
+
+        //Forma logarítmica             //Forma exponencial
+
+            log2(8) = 3         =>          2**3 = 8
+            log3(81) = 4        =>          3**4 = 81
+            log5(25) = 2        =>          5**2 = 25
+    
+    Formula logarítmica:
+
+        logB(A) = C         =>      B**C = A
+
+        -B es la base
+        -C es el exponente
+        -A el valor de entrada (o en la forma exponencial el resultado).
+    */
+
+    //Math.log(x)   => Devuelve el logaritmo natural en BASE e de x = loge x o ln x.
+    //e = Número de Euler
+    console.log("Math.log(2): ",Math.log(2));       //0.6931471805599453
+    console.log("Comprobación => Math.pow(Math.E,0.6931471805599453): ",Math.pow(Math.E,0.6931471805599453)) //1.9999999999999998 => redondeado es 2 como en el valor de entrada Math.log(2)
+    console.log("");
+
+    //Math.log10(x) => Devuellve el logaritmo decimal (en base 10) de x = log10 x ó log x.
+    console.log("Math.log10(2): ",Math.log10(2));   //0.3010299956639812
+    console.log("Comprobación => Math.pow(10,0.3010299956639812): ",Math.pow(10,0.3010299956639812));           //2 => Es el mismo valor que Math.log10(2)
+    console.log("");
+
+    //Math.log1p(x) => Devuelve el LOGARITMO NATURAL en BASE e de (1 + x) = loge (1+x) o ln (1+x)
+    //Este métoddo nos permite trabajar con más presición con números muy pequeños osea cercanos a 0
+    const smallnumber = 0.001;
+    console.log(smallnumber);
+
+    console.log("Math.log1p(smallnumber): ",Math.log1p(smallnumber));   //0.0009995003330835331 = Numero preciso = loge(1 + smallnumber)
+    console.log("Math.log(smallnumber)  : ",Math.log(smallnumber));     //-6.907755278982137 = número no preciso   
+    console.log("");
+    
+    //--
+    console.log("Math.log1p(2): ",Math.log1p(2));     //1.0986122886681096
+
+    //Debido a la forma que javascript maneja los calculos con los decimales, al realizar operaciones con números tan pequeños, disminuye su presición.
+    console.log("Comprobación => Math.exp(1.0986122886681096): ",Math.exp(1.0986122886681096));                   //2.9999999999999996
+    console.log("Comprobación => Math.pow(Math.E,1.0986122886681096): ",Math.pow(Math.E,1.0986122886681096));     //2.999999999999999
+    console.log("");
+
+    //-------------------------------------------------------------------------------
     console.log("");
     console.log("");
+    console.log("");
+
     //-------------------------------------------------------------------------------
 
     console.log("");
