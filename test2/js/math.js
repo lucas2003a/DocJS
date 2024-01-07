@@ -231,8 +231,16 @@ document.addEventListener("DOMContentLoaded",()=>{
     console.log("");
 
     //-------------------------------------------------------------------------------
+    console.log("%cMétodos de redondeo","font-weight: bold;");
+    //Math.round(x) => Devuelve x con redondeo (el entero más cercano).
+    console.log("Math.round(3.75): ", Math.round(3.75));      //4
+    console.log("Math.round(3.25): ", Math.round(3.25));      //3
     console.log("");
-    console.log("");
+
+    //Math.ceil(x)  => Devuelve x con redondeo superior (el entero más alto).
+    //ceil          => Es la abrevicaión de ceiling, que en inglés significa "techo", en matemáticas, se refiere a una función de techo que redondea un número al entero más cercano, que es mayor o igual al número proporcionado.  
+    console.log("Math.ceil(3.75): ", Math.ceil(3.75));      //4
+    console.log("Math.ceil(3.25): ", Math.ceil(3.25));      //4
     console.log("");
 
     //-------------------------------------------------------------------------------
