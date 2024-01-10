@@ -243,9 +243,46 @@ document.addEventListener("DOMContentLoaded",()=>{
     console.log("Math.ceil(3.25): ", Math.ceil(3.25));      //4
     console.log("");
 
+    //Math.floor(x) => Devuelve x con redondeo inferior (el entero más bajo).
+    //floor         => En inglés significa "piso", es decir redondea el número entero más cercano que es menor o igual al número proporcionado
+    console.log("Math.floor(3.75): ", Math.floor(3.75));      //3
+    console.log("Math.floor(3.25): ", Math.floor(3.25));      //3
+    console.log("");
+
+    //Math.fround(x)    => Devuelve x con redondeo (FLOTANTE DE PRESICIÓN SIMPLE)
+    /*x es un numeo que se encuentra en presición doble (64 bits) y lo transfoma a presición simple (32 bits), por eso existe es perdida de presición en el número.
+    Los números como 0.25, 0.5, 0.75 o la unidad entera, tienen una respresentacion binaria  precisa, por lo tanto al pasarlo a una presición simple, se pueden representar de manera exacta, pero los numeros que NO sean 0.25, 0.5, 0.75, no tienen una representacion binaria precisa, por eso que ya sea que usemos 64 bits o 32 bits, esos numeros simpre se representaran de manera imprecisa.
+    Este método sirve para poder obtener un número de una forma más detallada, pero MENOS PRECISA.
+    */
+    console.log("Math.round(3.123456789): ", Math.round(3.123456789));      //3
+    console.log("Math.fround(3.123456789): ", Math.fround(3.123456789));    //3.1234567165374756
+    console.log("");
+
+    //Math.trunc(x)     => Trunca número x (DEVUELVE SOLO LA PARTE ENTERA).
+    console.log("Math.trunc(3.75): ", Math.trunc(3.75));        //3
+    console.log("Math.round(-3.75): ", Math.round(-3.75));      //-4
+    console.log("Math.trunc(-3.75)", Math.trunc(-3.75));        //-3
+    console.log("");
     //-------------------------------------------------------------------------------
 
+    console.log("%cMétodos trigonométricos","font-weight: bold;");
+    
+    //Math.sin(x) => Devuelve el seno de x (RADIANES)
+    /*  Este método devuelve un valor que demuestra LA ALTURA de un punto en un circulo imaginario.
+        Puedes ver el ejemplo en "test2/images/seno_conseno_tangente.jpg".
+        x es un valor en grados, no radianes, pero el metodo devuelve el resultado en radianes.
+    */
+    console.log("Math.sin(2): ",Math.sin(2));     //0.9092974268256817
+
+    //Math.asin(x)  => Devuelve el arcoseno de x 
+    /*  Este método es la inversa de Math.sin(x), en vez de hallar la altura del punto de un circulo, mas bien halla el ÁNGULO CUYO SENO ES EL PROPORCIONADO.
+    */
+    console.log("Math.asin(0.9092974268256817): ",Math.asin(0.9092974268256817));   //1.1415926535897933
     console.log("");
+    /**IMPORTANTE**
+     * Apesar de ser opeaciones inversas, no quiere decir que su resultado será el mismo, muchas veces coincidirán pero otras no.
+    */
+
     console.log("");
     //-------------------------------------------------------------------------------
 
