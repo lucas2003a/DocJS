@@ -272,6 +272,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         Puedes ver el ejemplo en "test2/images/seno_conseno_tangente.jpg".
         x es un valor en grados, no radianes, pero el metodo devuelve el resultado en radianes.
     */
+   //Ingresas el angulo y te devuelve el seno.
     console.log("Math.sin(2): ",Math.sin(2));     //0.9092974268256817
 
     //Math.asin(x)  => Devuelve el arcoseno de x 
@@ -279,11 +280,112 @@ document.addEventListener("DOMContentLoaded",()=>{
     */
     console.log("Math.asin(0.9092974268256817): ",Math.asin(0.9092974268256817));   //1.1415926535897933
     console.log("");
+    //Ingresas el seno y te devuelve el angulo.
     /**IMPORTANTE**
      * Apesar de ser opeaciones inversas, no quiere decir que su resultado será el mismo, muchas veces coincidirán pero otras no.
+     * 
     */
 
+    //---------------------------------------
+    //Math.sinh(x)  => Devuelve el seno hiperbólico de x
+    /*Representa como varía la ALTURA a lo largo de un hipérbola.
+        Ejemplo:
+        Si estamos en una montaña rusa, y queremos saber la altura en un momento específico, el seno hièrbólico nos dará esa información..
+    */
+   //Ingresas al POSICIÓN y te devuelve la ALTURA.
+    console.log("Math.sinh(2): ", Math.sinh(2));        //3.626860407847019
+
+    //Math.asinh(x) =>  Devuelve el arcoseno hièrbólico de x
+    /*  Siguiendo el ejemplo de la montaña rusa..
+            Si tenemos una laltura determinada en la montaña rusa (expresada en el seno hiperbólico), pero ahora quieres saber desde que punto específico de la montaña rusa alcanzaste esa altura, el arcoseno hiperbólico te dará esa información.
+            Es decir si tienes la ALTURA, te devolverá la POSICIÓN.
+    */
+    console.log("Math.asinh(3.626860407847019): ",Math.asinh(3.626860407847019));       //2
     console.log("");
+    //el seno hiperbólico y el arcoseno hiperbólico son funciones o operaciones inversas.
+
+    //Math.cos(x)   => Devuelve el coseno de x.
+    /*Calcula el coseno de un ángulo en radianes, devuelve un valor que indica que tan lejos esta un punto en un circulo imaginario, HORIZONTALMENTE.
+    */
+    console.log("Math.cos(2): ",Math.cos(2));   //-0.4161468365471424
+
+    //Math.acos(x)  =>  Devuelve el arcoseno de x.
+    /*Devuelve el ángulo cuyo coseno es el número proporcionado
+    */
+    console.log("Math.acos(-0.4161468365471424): ",Math.acos(-0.4161468365471424))        //2
+    console.log("");
+
+    //Math.cosh(x)  =>  Devuelve el conseno hiperbólico de x.
+    //Devuelve la posición horizontal en una hiperbólica en un eje horizontal.
+    /*Ejemplo:
+        Si estás en un tobogan, y ahora quieres saber en que punto del tobogán estás A LO LARGO DEL RECORRIDO (POSICIÓN), y NO LA ALTURA 
+    */
+   //Ingresas la POSICIÓN y obtienes la ALTURA.
+    console.log("Math.cosh(3): ", Math.cosh(3));     //10.067661995777765
+
+    //Math.acosh(X) => Devuelve al arcocoseno hiperbólico de x.
+    /*Ejemplo:
+        Imagina que ya conoces la posición a lo largo del tiobogán (expresada en el coseno hiperbólico), pero quieres saber la altura en ese punto específico. El arcocoseno hiperbólico te dará esa información.
+    */
+   //Ingresas la ALTURA y obtienes la POSICIÓN.
+    console.log("Math.acosh(10.067661995777765): ",Math.acosh(10.067661995777765));     //3
+    console.log("");
+    
+    //Math.tan(x)   =>  Devuelve la tangente de x.
+    /*Ejemplo:
+        Si en una montaña rusa quieres saber que tan impinado o inclinado es el camino en un punto en particular, la tangente te dará esa información.
+    */
+   //Igresas el ÁNGULO y obtienes la PENDIENTE (inclinación del ángulo).
+    console.log("Math.tan(4): ", Math.tan(4));      //1.1578212823495777
+
+    //Math.atan(x)  =>  Devuelve el arcotangente de x.
+    /*Continuando con el ejemplo anterior..
+        Si ya tienes la inclinacion de un punto en particular en el camino, pero quieres hallar el ángulo, la arcotangente te brindará esa información.
+    */
+   //Ingresas la tangente (PENDIENTE) y obtienes el ÁNGULO.
+    console.log("Math.atan(1.1578212823495777)  : ", Math.atan(1.1578212823495777));      //0.8584073464102068
+    console.log("");
+    
+    //Math.tanh(x)  =>  Devuelve la tangente hiperbólica de x.
+    /*Expresa la inclinación o pendiente de una línea en una hiperbola.
+    */
+    console.log("Math.tanh(5): ",Math.tanh(5));     //0.9999092042625951
+
+    //Math.atanh(x) =>  Devuelve la arcotangente hiperbolica de x.
+    /*Obtiene la tangente hiperbólica del valor indicado en Math.tanh().
+    */
+    console.log("Math.atanh(0.9999092042625951) : ",Math.atanh(0.9999092042625951));     //4.999999999999874
+    console.log("");
+
+    //Math.atan2(x,y)   =>  Devuelve la tangente del cociente de x/y.
+    /*Devuelve el águlo cuya tangente es la razón entre x/y en RADIANES.
+    */
+    console.log("Math.atan2(20,10)  : ",Math.atan2(20,10));   //1.1071487177940904
+
+    //Comprobación
+    const x1 = 20;
+    const y2 = 10;
+    const razon = x1/y2;
+    console.log("variable razon: ",razon);
+    console.log("Math.atan(razon)   : ",Math.atan(razon));     //1.1071487177940904
+    console.log("");
+    //En ambos casos el resultado es el mismo, pero Math.atan2(x,y) resume todo lo hecho en la comprobación.
+
+    //Math.hypot(a, b, c ...)   =>  Devuelve la raíz cuadrada de a**2 + b**2 ..
+    //calcula la longitud de la hipotenusa dado los catetos de un triángulo rectángulo, es decir, devuelve la raíz cuadrada de la suma de los cuadrados de los argumentos.
+    console.log("Math.hypot(10, 5, 4)   : ",Math.hypot(10, 5, 4));
+
+    //comprobacion
+
+    const potencia10 = 10**2;
+    const potencia5 = 5**2;
+    const potencia4 = 4**2;
+
+    const hypotenusa = Math.sqrt(potencia10 + potencia5 + potencia4);
+    console.log("Hypotenusa             : ",hypotenusa);
+
+    /*En ambos casos los resultados son iguales, pero en Math.hypot resume todo lo hecho en la comprobación.
+    */
     //-------------------------------------------------------------------------------
 
     console.log("");
