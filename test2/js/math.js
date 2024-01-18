@@ -383,16 +383,19 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     const hypotenusa = Math.sqrt(potencia10 + potencia5 + potencia4);
     console.log("Hypotenusa             : ",hypotenusa);
+    console.log("");
 
     /*En ambos casos los resultados son iguales, pero en Math.hypot resume todo lo hecho en la comprobación.
     */
     //-------------------------------------------------------------------------------
+    //Otras librerías matemáticas
 
-    console.log("");
-    console.log("");
+    /*  Librería	                    Descripción	                                            GitHub
+        Math.js         =>  Librería matemática de propósito general.                   =>  josdejong/mathjs
+        Fraction.js	    =>  Librería matemática para trabajar con fracciones.	        =>  infusion/Fraction.js
+        Polynomial.js	=>  Librería matemática para trabajar con polinomios.	        =>  infusion/Polynomial.js
+        Complex.js	    =>  Librería matemática para trabajar con números complejos.    =>  infusion/Complex.js
+        Angles.js	    =>  Librería matemática para trabajar con ángulos.	            =>  infusion/Angles.js
+        BitSet.js	    =>  Librería matemática para trabajar con vectores de bits.	    =>  infusion/BitSet.js */
     //-------------------------------------------------------------------------------
-
-    console.log("");
-    console.log("");
-
 });
