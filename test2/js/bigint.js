@@ -61,8 +61,27 @@ document.addEventListener("DOMContentLoaded",()=>{
     console.log("Métodos de Big int");
 
     //BigInt.asIntN(bits, bigNumber)    =>      Devuelve bigNumber(BIG INT) a un NUMBER en  bits (devuelve un entero con signo).
+    
+    //Con 2 bits con signo, puedes representar desde(-2 hatas 1).
+    console.log("BigInt.asIntN(2, -3n)  : ",BigInt.asIntN(2, -3n));     //1n    =>      (Representa el -3 con 2 bits).
+    console.log("BigInt.asIntN(2, -2n)  : ",BigInt.asIntN(2, -2n));     //-2n   =>      (Representa el -2 con 2 bits).          10
+    console.log("BigInt.asIntN(2, -1n)  : ",BigInt.asIntN(2, -1n));     //-1n   =>      (Representa el -1 con 2 bits).          11
+    console.log("BigInt.asIntN(2, 0n)   : ",BigInt.asIntN(2, 0n));      //0     =>      (Representa el 0 con 2 bits).           00
+    console.log("BigInt.asIntN(2, 1n)   : ",BigInt.asIntN(2, 1n));      //1n    =>      (Representa el 1 con 2 bits).           01
+    console.log("BigInt.asIntN(2, 2n)   : ",BigInt.asIntN(2, 2n));      //-2n   =>      (Representa el 2 con 2 bits).
+    console.log("BigInt.asIntN(2, 3n)   : ",BigInt.asIntN(2, 3n));      //-1n   =>      (Representa el 3 con 2 bits).
+    console.log("");
+    
     //BigInt.asUintN(bits, bigNumber)    =>      Devuelve bigNumber(BIG INT) a un NUMBER en  bits (devuelve unu entero SIN signo).
-    console.log(BigInt.asIntN(2, -3n));
+
+    //Con 2 bits sin singo, puedes representar desde (0 hasta 4)
+    console.log("BigInt.asUintN(2, -2n) : ",BigInt.asUintN(2, -2n));    //2     =>      (Representa el -2 con 2 bits).
+    console.log("BigInt.asUintN(2, -1n) : ",BigInt.asUintN(2, -1n));    //1     =>      (Representa el -1 con 2 bits).
+    console.log("BigInt.asUintN(2, 0n)  : ",BigInt.asUintN(2, 0n));     //0     =>      (Representa el 0 con 2 bits).           00
+    console.log("BigInt.asUintN(2, 1n)  : ",BigInt.asUintN(2, 1n));     //1     =>      (Representa el 1 con 2 bits).           01
+    console.log("BigInt.asUintN(2, 2n)  : ",BigInt.asUintN(2, 2n));     //2     =>      (Representa el 2 con 2 bits).           10
+    console.log("BigInt.asUintN(2, 3n)  : ",BigInt.asUintN(2, 3n));     //3     =>      (Representa el 3 con 2 bits).           11
+    console.log("BigInt.asUintN(2, 4n)  : ",BigInt.asUintN(2, 4n));     //0     =>      (Representa el 4 con 2 bits).           
     console.log("");
 
     //-------------------------------------------------------------------------------------
