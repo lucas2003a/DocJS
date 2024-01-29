@@ -89,13 +89,70 @@ document.addEventListener("DOMContentLoaded",()=>{
     //Al indiccar el indice de un elemento que no existe obtendremos como resultado UNDEFINED, ya que el string SALUDO tiene una longitud de 10 caracteres(contando del 1 al 10), pero al acceder al indice 10, obtendremos undefined ya qe estarimos accediendo a un elemento 11 (ya que las posiciones o indices son contados del 0 al 9) y 11 termina superando la longitud del string (que es 10).
 
     //-------------------------------------------------------------------------------
-    console.log("");
+    console.log("%cMétodos de un string","font-weight: bold;");
+
+    //repeat(number)    =>  Repite un string, el número de veces señalado por number
+
+    console.log(saludo.repeat(4));  //Hola amigoHola amigoHola amigoHola amigo
     console.log("");
 
     //-------------------------------------------------------------------------------
-    console.log("");
+    console.log("%cInterpolación de variables","font-weight: bold;");
+
+    /*  La forma tradicional de concatenar en javaScript es:
+            "...." + "......"
+    
+        Pero al usar objetos o arrays, que son estructuras de datos mñas complejas, tambien aumenta la complejidad de leer el codigo.
+        
+        Para esto ECMAScript (ES2015) se intoduce la interpolación de varibles, en las que usamos los backticks o comillas invertidas (``), lo que nos permite interpolar el valor de una varble sin tener que abrir o cerrar la cadena de texto. Para inter porlar algun valor solo hace falta  usar ${}, su estructura es la siguiente:
+        
+            `....  ${varible} ...... ${varible2}`
+
+        Caratersticas de la interpolación de varibles:
+
+            *   Podemos hacer código multilínea, algo que de la forma tradicional no se puede hacer.
+            *   Permite interpolar expresiones en javaScript (NO SOLO VARIABLES).
+            *   Permite interpolar el valor de las variables (YA MENCIONADO).
+    */
+
+    //Concatenar mediante la forma tradicional
+
+    const frase1   = "frase";
+    const frase2   = "concatenada";
+    
+    console.log("Una " + frase1 + " bien " + frase2)    //Una frase bien concatenada
     console.log("");
 
+    //AL CONCATENENAR O INTERPOLAR, CONSIDERA LOS ESPACION VACIOS " "
+
+    //Interpolamos variables
+
+    const fraseInter    = "frase";
+    const frase2Inter   =  "concatenada";
+
+    console.log(`Una ${fraseInter} mejor ${frase2Inter}`);
+    console.log("");
+
+    //Con eto tambien podemso crear plntillas reutilizables, por ejemplo con codigo HTML
+
+    const magicWord =   `<strong>Magical word</strong>`;
+    const template  =   `
+        <div class="container">
+            ${magicWord}
+
+            <div class="alert alert-primary mt-4" role="alert">
+                <h4 class="alert-heading">Alert prueba</h4>
+                <p>Alert contenido : ${magicWord}</p>
+                <hr />
+                <p class="mb-0">${magicWord}</p>
+            </div>
+
+        </div>
+
+    `;
+
+    const plantilla = document.getElementById("plantilla");
+    plantilla.innerHTML = template;
     //-------------------------------------------------------------------------------
     console.log("");
     console.log("");
