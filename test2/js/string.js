@@ -137,7 +137,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     const magicWord =   `<strong>Magical word</strong>`;
     const template  =   `
-        <div class="container">
             ${magicWord}
 
             <div class="alert alert-primary mt-4" role="alert">
@@ -146,14 +145,76 @@ document.addEventListener("DOMContentLoaded",()=>{
                 <hr />
                 <p class="mb-0">${magicWord}</p>
             </div>
-
-        </div>
-
     `;
 
     const plantilla = document.getElementById("plantilla");
     plantilla.innerHTML = template;
+
+    //Otro ejemplo
+
+    const makeButton = function(className, text){
+        return `<button type="button" class="${className} m-2">${text}</button>`;
+    };
+
+    plantilla.innerHTML += makeButton("btn btn-primary","button primary");      //<button type="button" class="btn btn-primary m-2">button primary</button>
+    plantilla.innerHTML += makeButton("btn btn-danger","button danger");        //<button type="button" class="btn btn-danger m-2">button danger</button>
+    plantilla.innerHTML += makeButton("btn btn-warning","button warning");      //<button type="button" class="btn btn-warning m-2">button warning</button>
     //-------------------------------------------------------------------------------
+    console.log("%cPosiciones y substrings","font-weight: bold;");
+
+    /*  Substring               =>  Es un fragmento más pequeño que forma parte de un String, también se le suele hacer referencia a ellos como "subcadena" o "subcadena de texto".
+        Posición (o índice)     =>  Es el número que respresenta el lugar donde está ubicado un string teniendo en cuenta que se empieza a contar desde 0, así pues la primera letra del string tendría 0, la segunda 1, la tercera 2, etc ...
+
+        Por ejemplo:
+
+            "Hola amigos"   => "amigos" es un substring.
+            "Hola amigos"   => La posición o índice de "amigos" es 5.
+            ^0123456789
+     */
     console.log("");
+
+    //------------------------------------------------------------------------------
+    console.log("%cObtener posición","font-weight: bold;");
+    //STRING .charAt(pos)       =>  Devuelve el caracter de la posición pos. Similar al operador [].
+    const nombre = "Lucas";
+    console.log(nombre);
     console.log("");
+
+    console.log("nombre.charAt()    : ", nombre.charAt());      //L =>  Al no enviar parámetros, toma por defecto el primer caracter
+    console.log("nombre.charAt(0)   : ", nombre.charAt(0));     //L
+    console.log("nombre.charAt(1)   : ", nombre.charAt(1));     //u
+    console.log("nombre.charAt(2)   : ", nombre.charAt(2));     //c
+    console.log("nombre.charAt(3)   : ", nombre.charAt(3));     //a
+    console.log("nombre.charAt(4)   : ", nombre.charAt(4));     //s
+    console.log("nombre.charAt(5)   : ", nombre.charAt(5));     //" " => Al no existir un caracter en la poscicion señalada devuelve un espacio vacío.
+    console.log("");
+
+    //console.log("nombre[]   : ", nombre[]);       //Uncaught SyntaxError: Unexpected token ']'    => Obligatoriamente se debe en enviar un parámetro con el operador [].
+    console.log("nombre[]    : ", nombre[0]);       //L
+    console.log("nombre[1]   : ", nombre[1]);       //u
+    console.log("nombre[2]   : ", nombre[2]);       //c
+    console.log("nombre[3]   : ", nombre[3]);       //a
+    console.log("nombre[4]   : ", nombre[4]);       //s
+    console.log("nombre[5]   : ", nombre[5]);       //undefined => No existe el índice.
+    console.log("");
+
+    //------------------------------------------------------------------------------
+    console.log("");
+
+    //------------------------------------------------------------------------------
+    console.log("");
+
+    //------------------------------------------------------------------------------
+    console.log("");
+
+    //------------------------------------------------------------------------------
+    console.log("");
+
+    //------------------------------------------------------------------------------
+    console.log("");
+
+    //------------------------------------------------------------------------------
+    console.log("");
+
+    //------------------------------------------------------------------------------
 });
