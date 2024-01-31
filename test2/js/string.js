@@ -175,9 +175,11 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     //------------------------------------------------------------------------------
     console.log("%cObtener posición","font-weight: bold;");
+
+    //CARCTER EN CIERTA POSICIÓN
     //STRING .charAt(pos)       =>  Devuelve el caracter de la posición pos. Similar al operador [].
     const nombre = "Lucas";
-    console.log(nombre);
+    console.log("nombre: ", nombre);
     console.log("");
 
     console.log("nombre.charAt()    : ", nombre.charAt());      //L =>  Al no enviar parámetros, toma por defecto el primer caracter
@@ -198,7 +200,50 @@ document.addEventListener("DOMContentLoaded",()=>{
     console.log("nombre[5]   : ", nombre[5]);       //undefined => No existe el índice.
     console.log("");
 
+    //POSISICÓN DE CIERTO CARACTER
+    /*  .indexOf(text , from)   =>  Realiza la operación inversa a .charAt(), buscará el texto ingresado (text) y nos devolovera un NUMBER con la posición de la PRIMERA APARICIÓN
+        de dicho subtexto, en caso de no encontrarlo devolverá -1.
+
+        El parámtro FROM es opcional, que es la posición en la que empezará a buscar, que si no se suministra es 0.
+    */
+
+    const phrase = "LenguajeJS, página de Javascript";
+    console.log("phrase: ", phrase);
+    console.log("");
+
+    console.log(`phrase.indexOf("n")        : `, phrase.indexOf("n"));      //2
+    console.log(`phrase.indexOf("n", 3)     : `, phrase.indexOf("n", 3));   //16   
+    //Comienza a buscar desde la posición 3 (FROM), pero cuenta como si fuera desde la posición por defecto (0) por eso obtenenmos la posición 16, ya que alli de nuevo encontramos "n".
+
+    console.log(`phrase.indexOf("n", 17)    : `, phrase.indexOf("n", 17));  //-1
+    //Busca "n" desde la posición 17, perol no enontrarlo, devuelve -1.
+
+    console.log("");
+
+    //POSICIÓN DESDE EL FINAL
+    /*  .lastIndexOf(text, from)    =>  Funciona de la misma manera que .indexOf(text , from), pero a la inversa, es decir que comienza a buscar DESDE EL FINAL, de modo que busca las ULTIMAS APARICIONES
+    */
+    console.log(`phrase.lastIndexOf("n")        : `, phrase.lastIndexOf("n"));      //16
+    console.log(`phrase.lastIndexOf("n", 3)     : `, phrase.lastIndexOf("n", 3));   //2
+    //Al indicar FROM 3, comenzaria a buscar desde la posición 3 (FROM) hacia el inicio, y en la posición 2 encontramos una "n".
+
+    console.log(`phrase.lastIndexOf("n", 1)     : `, phrase.lastIndexOf("n", 1));   //-1
+    //Desde el indce 1 ("e") hacia atras, no se encuentra ninguna "n" por eso obtenenmos -1.
+
+    console.log("");
+
     //------------------------------------------------------------------------------
+    console.log("%cObtener fragmentos (substrings)","font-weigth: bold;");
+
+    //REPETIR CADENA DE TEXTO
+    const text = "Jamón";
+    console.log("text: ", text);
+    console.log("");
+    
+    console.log("text.repeat(4): ", text.repeat(4));    //JamónJamónJamónJamón
+    console.log("text.repeat(1): ", text.repeat(1));    //Jamón
+    console.log("text.repeat(4): ", text.repeat(0));    //" "
+    //console.log("text.repeat(4): ", text.repeat(-1));   //RangeError: Invalid count value: -1 => Este método no acepta valores negativos.
     console.log("");
 
     //------------------------------------------------------------------------------
