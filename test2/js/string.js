@@ -246,6 +246,16 @@ document.addEventListener("DOMContentLoaded",()=>{
     //console.log("text.repeat(4): ", text.repeat(-1));   //RangeError: Invalid count value: -1 => Este método no acepta valores negativos.
     console.log("");
 
+    //FRAGMENTO DE TEXTO
+    /*  substring(start, end)   =>  Devuelve un string de una cadena de texto desde la posición START hasta la opción END.
+                                    Si se omite el parámetro END, el subtexto abarcará desde START hasta el final.
+
+                                    ES IMPORTANTE RESALTAR QUE EL CARACTER DE LA POSICIÓN END NO SE INCLUIRÁ EN EL TEXTO RESULTANTE.
+    
+    */
+
+    console.log("text.substring(2)      : ", text.substring(2));
+    console.log("text.substring(2, 3)   : ", text.substring(2, 4));
     //------------------------------------------------------------------------------
     console.log("");
 
