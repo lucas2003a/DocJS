@@ -236,26 +236,80 @@ document.addEventListener("DOMContentLoaded",()=>{
     console.log("%cObtener fragmentos (substrings)","font-weigth: bold;");
 
     //REPETIR CADENA DE TEXTO
-    const text = "Jamón";
+    const text = "Jamón de cerdo";
     console.log("text: ", text);
     console.log("");
     
-    console.log("text.repeat(4): ", text.repeat(4));    //JamónJamónJamónJamón
-    console.log("text.repeat(1): ", text.repeat(1));    //Jamón
+    console.log("text.repeat(4): ", text.repeat(4));    //Jamón de cerdoJamón de cerdoJamón de cerdoJamón de cerdo
+    console.log("text.repeat(1): ", text.repeat(1));    //Jamón de cerdo
     console.log("text.repeat(4): ", text.repeat(0));    //" "
     //console.log("text.repeat(4): ", text.repeat(-1));   //RangeError: Invalid count value: -1 => Este método no acepta valores negativos.
     console.log("");
 
     //FRAGMENTO DE TEXTO
-    /*  substring(start, end)   =>  Devuelve un string de una cadena de texto desde la posición START hasta la opción END.
+
+    /*
+    -----------------------------------------------------------------------------------------------------------------------------------------------------
+    substring(start, end) 
+    -----------------------------------------------------------------------------------------------------------------------------------------------------
+    */
+
+    /*  substring(start, end)   =>  Devuelve un string con el FRAGMENTO DE TEXTO desde la posición START hasta la opción END.
                                     Si se omite el parámetro END, el subtexto abarcará desde START hasta el final.
 
                                     ES IMPORTANTE RESALTAR QUE EL CARACTER DE LA POSICIÓN END NO SE INCLUIRÁ EN EL TEXTO RESULTANTE.
     
     */
 
-    console.log("text.substring(2)      : ", text.substring(2));
-    console.log("text.substring(2, 3)   : ", text.substring(2, 4));
+    console.log("text.substring(2)      : ", text.substring(2));        
+    //món de cerdo  =>  El caracter de índice 2 es "m" y al no señalar el parámetro END, lo considera hasta el final del string.
+
+    console.log("text.substring(2, 3)   : ", text.substring(2, 4));     
+    /*  mó    =>    Inicia en "m" (índice 2), y señala el indice 4 en el parámetro END (que es "n"), pero este no se cuenta, sino una posición anterior. 
+                    Es decir END considerará solo hasta el índice anterior al que se le indica, si hemos indicado 4, solo considerará hasta el 3 ("ó").
+    */
+    console.log("");
+
+    /*
+    -----------------------------------------------------------------------------------------------------------------------------------------------------
+    substr(start, size)
+    -----------------------------------------------------------------------------------------------------------------------------------------------------
+    */
+           
+    /*  substr(start, size)   =>    Devuelve un string con el FRAGMENTO DE TEXTO desde la posición START hasta la posición START + SIZE.
+                                    Dicho de otra forma SIZE será el tamaño del string resultante, si se llegara a omitir, se devuelve hasta el final.
+
+    */
+
+    console.log("text.substr(2)     : ", text.substr(2))        //món de cerdo      =>  Al no tener el parámetro SIZE, lo considera hasta el final.                              
+    console.log("text.substr(2, 5)  : ", text.substr(2, 5))     //món d             =>  Inicia en el parámetro 2 ("n") y al indicar SIZE como 5, indica el teamaño del substring, osea de 5 caracteres.
+    console.log("text.substr(-5)    : ", text.substr(-5))       //cerdo             =>  Al indicar START con un negativo, quiere decir que comeinza a contar desde el final, y al no tener el parámetro SIZE, lo considera hasta el final.
+    /*  Lo cuenta así:
+
+            -1 = "o"    => -1 es el caracter final
+            -2 = "d"
+            -3 = "r"
+            -4 = "e"
+            -5 = "c"    => indice START
+    */ 
+    console.log("text.substr(-5, 2) : ", text.substr(-5, 2))    //ce                =>  Comienza contar desde el final hasta el indice STAR, e indicamos la longitud maxima de 2 caracteres SIZE = 2.
+        /*  Esta vez la cuenta sería algo así:
+
+            -1 = "o"    => -1 es el caracter final
+            -2 = "d"
+            -3 = "r"
+        -- SIZE
+            -4 = "e"
+            -5 = "c"    => indice START
+        -- SIZE
+    */  
+    console.log("");
+
+        /*
+    -----------------------------------------------------------------------------------------------------------------------------------------------------
+    substr(start, size)
+    -----------------------------------------------------------------------------------------------------------------------------------------------------
+    */
     //------------------------------------------------------------------------------
     console.log("");
 
