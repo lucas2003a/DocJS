@@ -264,10 +264,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     console.log("text.substring(2)      : ", text.substring(2));        
     //món de cerdo  =>  El caracter de índice 2 es "m" y al no señalar el parámetro END, lo considera hasta el final del string.
 
-    console.log("text.substring(2, 3)   : ", text.substring(2, 4));     
+    console.log("text.substring(2, 4)   : ", text.substring(2, 4));     
     /*  mó    =>    Inicia en "m" (índice 2), y señala el indice 4 en el parámetro END (que es "n"), pero este no se cuenta, sino una posición anterior. 
                     Es decir END considerará solo hasta el índice anterior al que se le indica, si hemos indicado 4, solo considerará hasta el 3 ("ó").
     */
+
+    console.log("text.substring(-4)     : ", text.substring(-4));   //Al usar un negativo como parámetro en .substring(-4), devuelve el string completo.
     console.log("");
 
     /*
@@ -305,13 +307,57 @@ document.addEventListener("DOMContentLoaded",()=>{
     */  
     console.log("");
 
-        /*
+    /*
     -----------------------------------------------------------------------------------------------------------------------------------------------------
-    substr(start, size)
+    .slice(start, end)  =>  Devuelve un FRAGMENTO DE STRING desde la posición START hasta a posición END.
+                            De ser omitido el parámetro END, se cosiderará hasta el final del string.
     -----------------------------------------------------------------------------------------------------------------------------------------------------
     */
-    //------------------------------------------------------------------------------
+
+    console.log("text.slice(2)          : ", text.slice(2))         //món de cerdo
+    console.log("text.slice(2, 4)       : ", text.slice(2, 4))      //mó    =>  Considera hasta una posición anterior a la indicada en el parámetro END
+    console.log("text.slice(-5)         : ", text.slice(-5))        //cerdo =>  Al indicar un negativo comienza a contar desde el final del string.
+    console.log("text.slice(-5, -3)     : ", text.slice(-5, -3))    //ce    =>  Obtendremos " " si indicamos en 2 como parámetro END ya que al indicar -5,
+                                                                    //          la forma de contar desde el final, será -5, -4, -3, -2, -1; el ultimo siempre será -1 hasta el parámetro indicado
     console.log("");
+
+    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        CONCLUSIONES:
+
+            Los 3 métodos sirven para obtener o extraer un substring de un string, pero cada uno tiene su caraterísticas distintivas
+
+            substring(start, end) :
+
+                *Tiene un parametro START(posición de inicio).
+                *Tiene un parametro END(posicion FINAL, si se omite, considera toda la cadena de texto).
+                *Al indicar el parámetro END, obtendremos un substring considerando los caracteres hasta una posición antes del parámetro END indicado.
+                *Al usar un negativo como parámetro START, obtendremos un string vacío.
+
+            substr(start, size) :
+
+                *Tiene un parametro START(posicion de inicio).
+                *Tiene un parámetro SIZE (longitud de caracteres del substring a obtener).
+                *Al indicar un negativo como parámetro START, comenzará a contar desde el final, el ultimo caracter será -1, hasta llegar al número indicado como START.
+                *Si indicas un negativo como parámetro START y no indicas la logitud (SIZE) el método considerará desde el indice START hasta el ultimo caracter (de izquierada a derecha).
+                *Si indicas un negativo como parámetro START y también indicas la logitud (SIZE) el método considerará desde el indice START hasta completar la longitud indicada (contaría de izquierada a derecha).
+
+            slice(start, end) :
+
+                *Tiene un parametro START(posición de inicio).
+                *Tiene un parametro END(posicion FINAL, si se omite, considera toda la cadena de texto).
+                *Al indicar el parámetro END, obtendremos un substring considerando los caracteres hasta una posición antes del parámetro END indicado.
+                *Al indicar un negativo como parámetro START, comenzará a contar desde el final, el ultimo caracter será -1, hasta llegar al número indicado como START.
+                *Si indicas un negativo como parámetro START y no indicas el parámetro END el método considerará desde el indice START hasta el ultimo caracter (de izquierada a derecha).
+                *Si indicas un negativo como parámetro START y si indicas el parámetro END como UN POSITIVO el método devolverá una cadena vacía, ya que si START es negativo también END debe serlo ay que ambos son parámetros.
+                *Si indicas un negativo como parámetro START y si indicas el parámetro END como UN NEGATIVO el método devolverá un substring, considerando desde el parámetro START hasta el indice END (incluido el mismo).
+
+    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+    //------------------------------------------------------------------------------
+    console.log("%cDividir un texto en partes","font-weight: bold;");
+
+    /*  .split()    =>  Divide un string un substrings considerarndo ciertos delimitadores, cada substring obtenido, formará parte de un array*/
+
+    console.log("88.12.44.123".split("."));
 
     //------------------------------------------------------------------------------
     console.log("");
