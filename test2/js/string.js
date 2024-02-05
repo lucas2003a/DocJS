@@ -355,9 +355,30 @@ document.addEventListener("DOMContentLoaded",()=>{
     //------------------------------------------------------------------------------
     console.log("%cDividir un texto en partes","font-weight: bold;");
 
-    /*  .split()    =>  Divide un string un substrings considerarndo ciertos delimitadores, cada substring obtenido, formará parte de un array*/
+    /*  ARRAY.split(text)    =>  Divide un string un substrings considerando ciertos delimitadores, cada substring obtenido, formará parte de un array
+                            ext es u string que funciona como separador o delimitaor
+    */
 
-    console.log("88.12.44.123".split("."));
+    //Se puede aplicar el métodos split() directo al string .                          
+    console.log(`"88.12.44.123".split(".")  : `, "88.12.44.123".split("."));        //(4) ['88', '12', '44', '123']     
+    console.log(`"1.2.3.4.5".split(".")     : `, "1.2.3.4.5".split("."));           //(5) ['1', '2', '3', '4', '5']
+    console.log(`"Hola a todos".split(" ")  : `, "Hola a todos".split(" "));        //(3) ['Hola', 'a', 'todos']
+    console.log(`"Código".split("")         : `, "Código".split(""));               //(6) ['C', 'ó', 'd', 'i', 'g', 'o']    =>  Dividió por cada caracter al usra como delmitador "" sin espacios.
+    console.log("");
+
+    //Se puede aplicar el métodos split() hacia una varible.
+    const array1 = "88.12.44.123";
+    const array2 = "1.2.3.4.5";
+    const array3 = "Hola a todos";
+    const array4 = "Código";
+
+    console.log(`array1.split(".")  : `, array1.split("."));        //(4) ['88', '12', '44', '123']
+    console.log(`array2.split(".")  : `, array2.split("."));        //(5) ['1', '2', '3', '4', '5']
+    console.log(`array3.split(" ")  : `, array3.split(" "));        //(3) ['Hola', 'a', 'todos']
+    console.log(`array4.split("")   : `, array4.split(""));         //(6) ['C', 'ó', 'd', 'i', 'g', 'o']
+    console.log("");
+
+    /*  ARRAY.split*/
 
     //------------------------------------------------------------------------------
     console.log("");
