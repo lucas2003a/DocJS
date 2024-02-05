@@ -355,7 +355,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     //------------------------------------------------------------------------------
     console.log("%cDividir un texto en partes","font-weight: bold;");
 
-    /*  ARRAY.split(text)    =>  Divide un string un substrings considerando ciertos delimitadores, cada substring obtenido, formará parte de un array
+    /*  ARRAY.split(text)    =>  Divide un string en substrings considerando ciertos delimitadores, cada substring obtenido, formará parte de un array
                             ext es u string que funciona como separador o delimitaor
     */
 
@@ -363,7 +363,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     console.log(`"88.12.44.123".split(".")  : `, "88.12.44.123".split("."));        //(4) ['88', '12', '44', '123']     
     console.log(`"1.2.3.4.5".split(".")     : `, "1.2.3.4.5".split("."));           //(5) ['1', '2', '3', '4', '5']
     console.log(`"Hola a todos".split(" ")  : `, "Hola a todos".split(" "));        //(3) ['Hola', 'a', 'todos']
-    console.log(`"Código".split("")         : `, "Código".split(""));               //(6) ['C', 'ó', 'd', 'i', 'g', 'o']    =>  Dividió por cada caracter al usra como delmitador "" sin espacios.
+    console.log(`"Código".split("")         : `, "Código".split(""));               //(6) ['C', 'ó', 'd', 'i', 'g', 'o']    =>  Dividió por cada caracter al usar como delmitador "" sin espacios.
     console.log("");
 
     //Se puede aplicar el métodos split() hacia una varible.
@@ -378,10 +378,106 @@ document.addEventListener("DOMContentLoaded",()=>{
     console.log(`array4.split("")   : `, array4.split(""));         //(6) ['C', 'ó', 'd', 'i', 'g', 'o']
     console.log("");
 
-    /*  ARRAY.split*/
+    /*  ARRAY.split(text, limit)    =>  Divide un string en substring, considerando text como un delimitador (es un string) y ademas usa a limit (que es unu number), como el número de fragmentos o substrings que retornara, contandolos desde le primero*/
+    console.log(`array1.split(".", 2)   : `, array1.split(".", 2));         //(2) ['88', '12']
+    console.log(`array2.split(".", 2)   : `, array2.split(".", 2));         //(2) ['1', '2']
+    console.log(`array3.split(" ", 2)   : `, array3.split(" ", 2));         //(2) ['Hola', 'a']
+    console.log(`array4.split("", 2)    : `, array4.split("", 2));          //(2) ['C', 'ó']
+
+    //Al indicar como limit 2, solo ha tomado los dos primeros elementos del array obtenido.
+    console.log("");
+
+    /*  .split(regexp)  =>  Hace lo mismo que .split(text), pero al diferencia es que es ves de usar uns tring como delimnitador, toma a una expresion regular
+        regexp          =>  Quieres decir regular expresion o "expresión regular", que son un conjntop de pratones o reglas de busqueda, es decir son el conjunto de caracteres que 
+        se tienen en consideración al realizar una busqueda o manipulación de un string, sustituir un texto o  validar cadenas.
+                            Estos pueden ser cadenas literales, clases de caracteres, cuantificadores, anclas y otros constructores que definen reglas para las coincidencias en las cadenas de texto.
+                            Para indicar una expresion regular se utiliza el operador //, y de la siguiente forma:
+                                /regexp/
+                            Y para indicar unu conjunto de caracteres usamos el operador // con el operador [], de la siguiente forma:
+                                /[regexp]/
+    */
+
+    console.log(`"88.12,44.123".split(/[.,]/)       : `, "88.12,44.123".split(/[.,]/));     //(4) ['88', '12', '44', '123']
+    console.log(`"88:12;44,123".split(/[:,;]/)      : `, "88:12;44,123".split(/[:,;]/));    //(4) ['88', '12', '44', '123']
+    console.log(`"88|12?44~123".split(/[|?~]/)      : `, "88|12?44~123".split(/[|?~]/));    //(4) ['88', '12', '44', '123']
+    console.log("");
+
+    /*  .split(regexp, limit) =>  Al igual que .split(text, limit), uso una expresión regular como delimitador y a la vez uso limit como el numero de fragmentos que devolverá es decir, la cantidad de elementos del array.
+    */
+    console.log(`"88.12,44.123".split(/[.,]/, 3)       : `, "88.12,44.123".split(/[.,]/, 3));     //(3) ['88', '12', '44']
+    console.log(`"88:12;44,123".split(/[:,;]/, 3)      : `, "88:12;44,123".split(/[:,;]/, 3));    //(3) ['88', '12', '44']
+    console.log(`"88|12?44~123".split(/[|?~]/, 3)      : `, "88|12?44~123".split(/[|?~]/, 3));    //(3) ['88', '12', '44']
+    console.log("");
 
     //------------------------------------------------------------------------------
+    console.log("%cBuscar y reemplazar","font-weight: bold;");
+    
+    /*
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    COMPROBACIÓN DE TEXTOS
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    */
+    /*  .starsWidth(text, from) =>  Comprueba si un string comienza con text, from (desde) es un parametro opcional, que si se omite, la busqueda se hará desde el primer índice, de lo contrario será desde el índice indicado
+    */
+
+    const string = "Lucas Alfredo";
+    console.log("string: ",string);
     console.log("");
+
+    console.log(`string.startsWith("L")     : `, string.startsWith("L"));       //true
+    console.log(`string.startsWith("u")     : `, string.startsWith("u"));       //false
+    console.log(`string.startsWith("c")     : `, string.startsWith("c"));       //false
+    console.log(`string.startsWith("Luc")   : `, string.startsWith("Luc"));     //true
+    console.log("");
+
+    console.log(`string.startsWith("L")     : `, string.startsWith("L", 2));       //false  =>  El índice 2  es c, entonces el strng no comienza con L
+    console.log(`string.startsWith("u")     : `, string.startsWith("u", 2));       //false
+    console.log(`string.startsWith("c")     : `, string.startsWith("c", 2));       //true   =>  Desde el índice 2("c"), comienza el string con "c".
+    console.log(`string.startsWith("Luc")   : `, string.startsWith("Luc", 2));     //false  =>  desde el índice 2("c"), no comienza el string con "luc"
+    console.log("");
+    
+    /*  .endsWidth(text, to) => Comprueba si un string termina con text, to (hasta) es un parámetro opcional que si se omite, la busqueda se hará hasta el índice final, de lo contrario será desde el índice indicado.
+    */
+
+    console.log(`string.endsWith("o")   : `, string.endsWith("o"));     //true
+    console.log(`string.endsWith("d")   : `, string.endsWith("d"));     //false
+    console.log(`string.endsWith("e")   : `, string.endsWith("e"));     //false 
+    console.log(`string.endsWith("edo") : `, string.endsWith("edo"));   //true
+    console.log("");
+
+    console.log(`string.endsWith("o", 7)    : `, string.endsWith("o", 7));      //false  =>  El índice 7 es "l" de "Alfredo" y de allí hacia atras (hacia la izquierda), no hay una "o".
+    console.log(`string.endsWith("d", 7)    : `, string.endsWith("d", 7));      //false
+    console.log(`string.endsWith("e", 7)    : `, string.endsWith("e", 7));      //false 
+    console.log(`string.endsWith("edo", 7)  : `, string.endsWith("edo", 7));    //false
+    console.log(`string.endsWith("A", 7)    : `, string.endsWith("A", 7));      //true  => Antes del indice 7 ("l" de "Alfredo") si existe un caracter "A".
+    console.log("");
+
+    /*  .includes(text, from)   => Comprueba si en uns tring está incluido text (sin importar si es al final o al inicio), también tiene un segundo parámetro from (opciona) que al omitirse considera la busqueda en todo el string, pero al índicar un índice, se tiene en consideración el índice indicado.
+    */
+
+    console.log(`string.includes("s Al")    : `, string.includes("s Al"));  //true
+    console.log(`string.includes("s Al")    : `, string.includes("L"));     //true
+    console.log(`string.includes("s Al")    : `, string.includes("r"));     //true
+    console.log(`string.includes("s Al")    : `, string.includes("fr"));    //true
+    console.log(`string.includes("s Al")    : `, string.includes("edo"));   //true
+    console.log(`string.includes("D")       : `, string.includes("D"));     //false
+    console.log("");
+
+    console.log(`string.includes("s Al", 4)    : `, string.includes("s Al", 4));  //true
+    console.log(`string.includes("s Al", 4)    : `, string.includes("L", 4));     //false   =>  El índice 4 es "s", y de allí en adelante (hacia la derecha), ya no se encuentra otro parámetro caracter "L"
+    console.log(`string.includes("s Al", 4)    : `, string.includes("r", 4));     //true
+    console.log(`string.includes("s Al", 4)    : `, string.includes("fr", 4));    //true
+    console.log(`string.includes("s Al", 4)    : `, string.includes("edo", 4));   //true
+    console.log(`string.includes("D", 4)       : `, string.includes("D", 4));     //false
+    console.log("");
+
+    /*
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    BUSQUEDA DE CADENA DE TEXTOS
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    */
+    /*  .search(regexp) =>  Busca un patron que encaje con regexp y devuelve la primera posición encontrada, si no se encuentra devuelve -1. 
+    */
 
     //------------------------------------------------------------------------------
     console.log("");
