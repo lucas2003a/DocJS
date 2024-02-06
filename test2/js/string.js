@@ -463,12 +463,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     console.log(`string.includes("D")       : `, string.includes("D"));     //false
     console.log("");
 
-    console.log(`string.includes("s Al", 4)    : `, string.includes("s Al", 4));  //true
-    console.log(`string.includes("s Al", 4)    : `, string.includes("L", 4));     //false   =>  El índice 4 es "s", y de allí en adelante (hacia la derecha), ya no se encuentra otro parámetro caracter "L"
-    console.log(`string.includes("s Al", 4)    : `, string.includes("r", 4));     //true
-    console.log(`string.includes("s Al", 4)    : `, string.includes("fr", 4));    //true
-    console.log(`string.includes("s Al", 4)    : `, string.includes("edo", 4));   //true
-    console.log(`string.includes("D", 4)       : `, string.includes("D", 4));     //false
+    console.log(`string.includes("s Al", 4)     : `, string.includes("s Al", 4));  //true
+    console.log(`string.includes("L", 4)        : `, string.includes("L", 4));     //false   =>  El índice 4 es "s", y de allí en adelante (hacia la derecha), ya no se encuentra otro parámetro caracter "L"
+    console.log(`string.includes("r", 4)        : `, string.includes("r", 4));     //true
+    console.log(`string.includes("fr", 4)       : `, string.includes("fr", 4));    //true
+    console.log(`string.includes("edo", 4)      : `, string.includes("edo", 4));   //true
+    console.log(`string.includes("D", 4)        : `, string.includes("D", 4));     //false
     console.log("");
 
     /*
@@ -476,8 +476,56 @@ document.addEventListener("DOMContentLoaded",()=>{
     BUSQUEDA DE CADENA DE TEXTOS
     -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     */
-    /*  .search(regexp) =>  Busca un patron que encaje con regexp y devuelve la primera posición encontrada, si no se encuentra devuelve -1. 
+    /*  .search(regexp) =>  Busca un patron que encaje con regexp y devuelve la PRIMERA POSICIÓN encontrada (primera ocurrencia), si no se encuentra devuelve -1. 
     */
+
+    const string2 = "El gato, el perro y el gato";
+    const regexp = /.a.o/g;
+    const regexpF = /ao/g;
+
+    console.log("string2    : ", string2);
+    console.log("string2.search(regexp)     : ", string2.search(regexp));   //3 => Por que la primera coincidencia se dá en la posición 3 (gato).
+    console.log("string2.search(regexpF)     : ", string2.search(regexpF));  //-1 => Por que no se econtró niguna coincidencia.
+    console.log("");
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    const string3 = "Marcelo fué por vino, quebró el vaso en el camino, pobre vaso, pobre vino, pobre pobre Marcelino";
+    const regexp2 = /.i.o/g;
+    const regexpF2 = /io/g;
+    
+    console.log("string3    : ", string3);
+    console.log("string3.search(regexp2)    : ", string3.search(regexp2)); //16 => Porque la primera conincidencia se dá en la posición 16 (vino).
+    console.log("string3.search(regexpF2)   : ", string3.search(regexpF2)); //-1 => Porque no se ensonctró niguna coincidencia.
+    console.log("");
+
+    /*  .match(regexp)  =>  Devuelve un ARRAY con las coincidencias encontradas, si no se encuentra devolverá NULL.
+    */
+   
+    console.log("string2.match(regexp)  : ", string2.match(regexp));    //(2) ['gato', 'gato']
+    console.log("string3.match(regexp2) : ", string3.match(regexp2));   //(4) ['vino', 'mino', 'vino', 'lino']
+    console.log("");
+
+    /*  matchAll(regexp)    => Devuelve un ITERADOR para poder recorrer las coincidencias encontradas.
+    */
+
+    const iterador = string2.matchAll(regexp);
+    console.log("iterador   : ", iterador);
+
+    for(let ocurrence of iterador){
+        console.log("ocurrence  : ", ocurrence);
+    }
+    console.log("");
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    const iterador2 = string3.matchAll(regexp2);
+    console.log("iterador2  : ", iterador2);
+
+    for(let ocurrence2 of iterador2){
+        console.log("ocurrence2 : ", ocurrence2);
+    }
+    console.log("");
 
     //------------------------------------------------------------------------------
     console.log("");
