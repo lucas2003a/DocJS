@@ -509,11 +509,15 @@ document.addEventListener("DOMContentLoaded",()=>{
     /*  matchAll(regexp)    => Devuelve un ITERADOR para poder recorrer las coincidencias encontradas.
     */
 
-    const iterador = string2.matchAll(regexp);
+    const iterador = string2.matchAll(regexp);      //iterador es un objeto iterable.
     console.log("iterador   : ", iterador);
 
+    let indice = 0;
+
     for(let ocurrence of iterador){
-        console.log("ocurrence  : ", ocurrence);
+        console.log("ocurrence  " + indice + ": ", ocurrence);
+
+        indice ++;
     }
     console.log("");
 
@@ -522,9 +526,33 @@ document.addEventListener("DOMContentLoaded",()=>{
     const iterador2 = string3.matchAll(regexp2);
     console.log("iterador2  : ", iterador2);
 
+    let indice1 = 0;
+
     for(let ocurrence2 of iterador2){
-        console.log("ocurrence2 : ", ocurrence2);
+        
+        console.log("ocurrence2 " + indice1 + ": " , ocurrence2);
+
+        indice1 ++;
     }
+    console.log("");
+
+    //Desestructurando el reultado de .matchAll()
+    /*  Desustructurar  =>  También conocida como DESTRUCTURING es una característica de algunos lenguajes que permiten extraer datos de objetos, arrays u otros tipos de  estructura de datos de manera más concisa y legible.
+    */
+
+    const result    =   [...string2.matchAll(regexp)];
+    const result1   =   [...string3.matchAll(regexp2)];
+
+    //El operador "..." (operador de propagación) sirve para acceder a los valores de alguna estructura de datos. 
+
+    console.log("[...string2.matchAll(regexp)]  : ", result);
+    console.log("[...string3.matchAll(regexp2)] : ", result1);
+
+    console.log("result.length      : ", result.length);
+    console.log("result1.length     : ", result1.length);
+
+    console.log("result[0].index    : ", result[0].index);
+    console.log("result1[0].index   : ", result1[0].index);
     console.log("");
 
     //------------------------------------------------------------------------------
